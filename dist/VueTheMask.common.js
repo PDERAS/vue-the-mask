@@ -321,7 +321,7 @@ function directive_event(name) {
 
 
 /* harmony default export */ var component = ({
-  name: 'TheMask',
+  name: "TheMask",
   props: {
     value: [String, Number],
     mask: {
@@ -380,20 +380,26 @@ function directive_event(name) {
       this.refresh(e.target.value);
     },
 
+    onBlur(e) {
+      if (e.target.value === this.mask.charAt(0)) {
+        this.refresh("");
+      }
+    },
+
     refresh(value) {
       this.display = value;
-      var value = masker(value, this.mask, this.masked, this.tokens);
+      var newValue = masker(value, this.mask, this.masked, this.tokens);
 
-      if (value !== this.lastValue) {
-        this.lastValue = value;
-        this.$emit('input', value);
+      if (newValue !== this.lastValue) {
+        this.lastValue = newValue;
+        this.$emit("input", newValue);
       }
     }
 
   }
 });
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1d380615","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/component.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{directives:[{name:"mask",rawName:"v-mask",value:(_vm.config),expression:"config"}],attrs:{"type":"text"},domProps:{"value":_vm.display},on:{"input":_vm.onInput}})}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/template-compiler?{"id":"data-v-0cb4beb4","hasScoped":false,"optionsId":"0","buble":{"transforms":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./src/component.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('input',{directives:[{name:"mask",rawName:"v-mask",value:(_vm.config),expression:"config"}],attrs:{"type":"text"},domProps:{"value":_vm.display},on:{"input":_vm.onInput,"blur":_vm.onBlur}})}
 var staticRenderFns = []
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/component-normalizer.js
