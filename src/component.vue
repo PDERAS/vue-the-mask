@@ -1,5 +1,5 @@
 <template>
-    <input type="text" v-mask="config" :value="display" @input="onInput" />
+    <input type="text" v-mask="config" :value="display" @input="onInput" @blur="onBlur" />
 </template>
 
 <script>
@@ -57,12 +57,18 @@ export default {
             this.refresh(e.target.value);
         },
 
+        onBlur(e) {
+            if (e.target.value === this.mask.charAt(0)) {
+                this.refresh("");
+            }
+        },
+
         refresh(value) {
             this.display = value;
-            var value = masker(value, this.mask, this.masked, this.tokens);
-            if (value !== this.lastValue) {
-                this.lastValue = value;
-                this.$emit("input", value);
+            var newValue = masker(value, this.mask, this.masked, this.tokens);
+            if (newValue !== this.lastValue) {
+                this.lastValue = newValue;
+                this.$emit("input", newValue);
             }
         }
     }
