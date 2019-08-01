@@ -77,9 +77,6 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": [
-    "last 2 chrome versions"
-  ],
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.10",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.10",
