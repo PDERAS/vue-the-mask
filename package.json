@@ -65,6 +65,13 @@
       }
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:PDERAS/vue-the-mask.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "eslintConfig": {
     "root": true,
     "extends": [
