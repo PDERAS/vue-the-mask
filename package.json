@@ -1,6 +1,6 @@
 {
-  "name": "vue-the-mask",
-  "version": "0.11.1",
+  "name": "@pderas/vue-the-mask",
+  "version": "0.11.2",
   "description": "Tiny (2KB) and dependency free mask input for Vue.js",
   "main": "dist/VueTheMask.umd.min.js",
   "scripts": {
@@ -24,9 +24,8 @@
     "bundle": "vue-cli-service build --target lib --name VueTheMask ./src/index.js"
   },
   "files": [
-    "dist/",
-    "src/*.js",
-    "src/*.vue"
+    "dist/**.js",
+    "dist/**.css"
   ],
   "keywords": [
     "vue",
@@ -64,6 +63,13 @@
         ]
       }
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:PDERAS/vue-the-mask.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "eslintConfig": {
     "root": true,
